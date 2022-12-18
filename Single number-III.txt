@@ -1,0 +1,17 @@
+class Solution:
+    def singleNumber(self, nums: List[int]) -> List[int]:
+        r = 0
+        for num in nums:
+            r ^= num
+        
+        mask = r ^ ( r & (r-1) )
+        
+        p = 0
+        q = 0
+        for num in nums:
+            if (num & mask) == 0:
+                p ^= num
+            else:
+                q ^= num
+        
+        return [p ,q]
