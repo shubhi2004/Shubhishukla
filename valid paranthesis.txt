@@ -1,0 +1,11 @@
+class Solution:
+    def isValid(self, sequence):
+        while True:
+            if '()' in sequence:
+                sequence=sequence.replace('()','')
+            elif '{}' in sequence:
+                sequence=sequence.replace('{}','')
+            elif '[]' in sequence:
+                sequence=sequence.replace('[]','')
+            else:
+                return not sequence
